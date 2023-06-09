@@ -9,3 +9,11 @@ export async function index(req: Request, res: Response) {
     res.status(500).send(error.message);
   }
 }
+
+export async function view(req: Request, res: Response) {
+  try {
+    const productId = parseInt(req.params.id);
+    const product = await productModel.getProductById(productId);
+    res.status(200).send(product);
+  } catch (error) {}
+}

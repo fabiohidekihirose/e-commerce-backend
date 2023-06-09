@@ -24,7 +24,10 @@ server.use(express.json());
 
 const serverEndpoints = () => {
   server.get("/products", productsController.index);
+  server.get("/products/:id", productsController.view);
+
   server.get("/departments", departmentsController.index);
+
   server.get("/categories", categoriesController.index);
 
   return server;

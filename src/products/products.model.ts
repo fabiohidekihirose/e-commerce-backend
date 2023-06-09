@@ -1,6 +1,6 @@
 import { db } from "../utils/db.server";
 
-interface Products {
+interface ProductsProps {
   id: number;
   name: string;
   department_name: string;
@@ -10,7 +10,7 @@ interface Products {
   quantity: number;
 }
 
-export async function getAllProducts(): Promise<Products[]> {
+export async function getAllProducts(): Promise<ProductsProps[]> {
   return db.products.findMany({
     select: {
       id: true,
@@ -20,6 +20,27 @@ export async function getAllProducts(): Promise<Products[]> {
       price: true,
       category_name: true,
       quantity: true,
+      description: true,
+    },
+  });
+}
+
+export async function getProductById(
+  productId: number
+): Promise<ProductsProps | null> {
+  return db.products.findUnique({
+    select: {
+      id: true,
+      name: true,
+      department_name: true,
+      image: true,
+      price: true,
+      category_name: true,
+      quantity: true,
+      description: true,
+    },
+    where: {
+      id: productId,
     },
   });
 }
