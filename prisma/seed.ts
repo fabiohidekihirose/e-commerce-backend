@@ -34,12 +34,14 @@ async function seed() {
     getProducts().map((product) => {
       return db.products.create({
         data: {
+          id: product.id,
           name: product.name,
           quantity: product.quantity,
           image: product.image,
           price: product.price,
           category_name: product.category,
           department_name: product.department,
+          description: product.description,
         },
       });
     })
@@ -153,6 +155,8 @@ function getProducts() {
       department: "living-room",
       category: "sofa",
       quantity: 100,
+      description:
+        "Introducing our exquisite sofa, a true embodiment of comfort and style. Crafted with meticulous attention to detail, this sofa seamlessly combines luxurious aesthetics with exceptional functionality. Its plush cushions and ergonomic design provide an unparalleled level of comfort, inviting you to sink in and unwind after a long day. The sofa's sturdy construction and premium upholstery ensure durability, making it a long-lasting addition to your living space. With its timeless elegance and versatile appeal, this sofa effortlessly complements a range of interior styles. Whether you're hosting guests or enjoying a quiet evening, our sofa promises to be the perfect centerpiece for your home, offering both comfort and aesthetic allure.",
     },
     {
       id: -2,
@@ -162,6 +166,8 @@ function getProducts() {
       department: "living-room",
       category: "armchair",
       quantity: 124,
+      description:
+        "Introducing our luxurious armchair, where comfort meets elegance. Designed with both style and relaxation in mind, this armchair is a true centerpiece for any living space. Its plush cushioning and ergonomic design offer optimal support, allowing you to sink in and unwind after a long day. Crafted with the finest materials, this armchair exudes sophistication and durability, promising years of comfortable seating. Its timeless design effortlessly complements a range of interior styles, from classic to contemporary. Whether you're curling up with a book or enjoying a cozy conversation, this armchair provides the perfect sanctuary for relaxation. Indulge in the ultimate comfort and style with our exquisite armchair, a true testament to refined living.",
     },
     {
       id: -3,
@@ -171,6 +177,8 @@ function getProducts() {
       department: "living-room",
       category: "sofa",
       quantity: 252,
+      description:
+        "Introducing our exquisite sofa, a true embodiment of comfort and style. Crafted with meticulous attention to detail, this sofa seamlessly combines luxurious aesthetics with exceptional functionality. Its plush cushions and ergonomic design provide an unparalleled level of comfort, inviting you to sink in and unwind after a long day. The sofa's sturdy construction and premium upholstery ensure durability, making it a long-lasting addition to your living space. With its timeless elegance and versatile appeal, this sofa effortlessly complements a range of interior styles. Whether you're hosting guests or enjoying a quiet evening, our sofa promises to be the perfect centerpiece for your home, offering both comfort and aesthetic allure.",
     },
     {
       id: -4,
@@ -180,6 +188,8 @@ function getProducts() {
       department: "living-room",
       category: "sofa",
       quantity: 23,
+      description:
+        "Introducing our exquisite sofa, a true embodiment of comfort and style. Crafted with meticulous attention to detail, this sofa seamlessly combines luxurious aesthetics with exceptional functionality. Its plush cushions and ergonomic design provide an unparalleled level of comfort, inviting you to sink in and unwind after a long day. The sofa's sturdy construction and premium upholstery ensure durability, making it a long-lasting addition to your living space. With its timeless elegance and versatile appeal, this sofa effortlessly complements a range of interior styles. Whether you're hosting guests or enjoying a quiet evening, our sofa promises to be the perfect centerpiece for your home, offering both comfort and aesthetic allure.",
     },
     {
       id: -5,
@@ -189,6 +199,8 @@ function getProducts() {
       department: "bedroom",
       category: "bed",
       quantity: 10,
+      description:
+        "Introducing our exquisite bed, where comfort meets luxury. Designed with utmost attention to detail, this bed offers a serene haven for restful nights and rejuvenating sleep. Crafted with premium materials and a sturdy frame, it ensures exceptional durability and long-lasting support. The bed's plush mattress provides the perfect balance between softness and firmness, cradling your body for optimal comfort. With its elegant design and versatile aesthetics, this bed seamlessly complements a range of bedroom styles, from contemporary to classic. Whether you're creating a peaceful retreat or a statement piece for your bedroom, our bed adds a touch of sophistication to your space. Indulge in a night of blissful sleep and awaken refreshed with our exceptional bed, where luxury and comfort harmonize for the ultimate sleeping experience.",
     },
     {
       id: -6,
@@ -198,6 +210,8 @@ function getProducts() {
       department: "bedroom",
       category: "bed",
       quantity: 103,
+      description:
+        "Introducing our exquisite bed, where comfort meets luxury. Designed with utmost attention to detail, this bed offers a serene haven for restful nights and rejuvenating sleep. Crafted with premium materials and a sturdy frame, it ensures exceptional durability and long-lasting support. The bed's plush mattress provides the perfect balance between softness and firmness, cradling your body for optimal comfort. With its elegant design and versatile aesthetics, this bed seamlessly complements a range of bedroom styles, from contemporary to classic. Whether you're creating a peaceful retreat or a statement piece for your bedroom, our bed adds a touch of sophistication to your space. Indulge in a night of blissful sleep and awaken refreshed with our exceptional bed, where luxury and comfort harmonize for the ultimate sleeping experience.",
     },
     {
       id: -7,
@@ -207,6 +221,8 @@ function getProducts() {
       department: "bedroom",
       category: "bed",
       quantity: 92,
+      description:
+        "Introducing our exquisite bed, where comfort meets luxury. Designed with utmost attention to detail, this bed offers a serene haven for restful nights and rejuvenating sleep. Crafted with premium materials and a sturdy frame, it ensures exceptional durability and long-lasting support. The bed's plush mattress provides the perfect balance between softness and firmness, cradling your body for optimal comfort. With its elegant design and versatile aesthetics, this bed seamlessly complements a range of bedroom styles, from contemporary to classic. Whether you're creating a peaceful retreat or a statement piece for your bedroom, our bed adds a touch of sophistication to your space. Indulge in a night of blissful sleep and awaken refreshed with our exceptional bed, where luxury and comfort harmonize for the ultimate sleeping experience.",
     },
     {
       id: -8,
@@ -216,6 +232,8 @@ function getProducts() {
       department: "bedroom",
       category: "bed",
       quantity: 24,
+      description:
+        "Introducing our exquisite bed, where comfort meets luxury. Designed with utmost attention to detail, this bed offers a serene haven for restful nights and rejuvenating sleep. Crafted with premium materials and a sturdy frame, it ensures exceptional durability and long-lasting support. The bed's plush mattress provides the perfect balance between softness and firmness, cradling your body for optimal comfort. With its elegant design and versatile aesthetics, this bed seamlessly complements a range of bedroom styles, from contemporary to classic. Whether you're creating a peaceful retreat or a statement piece for your bedroom, our bed adds a touch of sophistication to your space. Indulge in a night of blissful sleep and awaken refreshed with our exceptional bed, where luxury and comfort harmonize for the ultimate sleeping experience.",
     },
     {
       id: -9,
@@ -225,6 +243,8 @@ function getProducts() {
       department: "bedroom",
       category: "bed",
       quantity: 12,
+      description:
+        "Introducing our exquisite bed, where comfort meets luxury. Designed with utmost attention to detail, this bed offers a serene haven for restful nights and rejuvenating sleep. Crafted with premium materials and a sturdy frame, it ensures exceptional durability and long-lasting support. The bed's plush mattress provides the perfect balance between softness and firmness, cradling your body for optimal comfort. With its elegant design and versatile aesthetics, this bed seamlessly complements a range of bedroom styles, from contemporary to classic. Whether you're creating a peaceful retreat or a statement piece for your bedroom, our bed adds a touch of sophistication to your space. Indulge in a night of blissful sleep and awaken refreshed with our exceptional bed, where luxury and comfort harmonize for the ultimate sleeping experience.",
     },
     {
       id: -10,
@@ -234,6 +254,8 @@ function getProducts() {
       department: "living-room",
       category: "armchair",
       quantity: 120,
+      description:
+        "Introducing our luxurious armchair, where comfort meets elegance. Designed with both style and relaxation in mind, this armchair is a true centerpiece for any living space. Its plush cushioning and ergonomic design offer optimal support, allowing you to sink in and unwind after a long day. Crafted with the finest materials, this armchair exudes sophistication and durability, promising years of comfortable seating. Its timeless design effortlessly complements a range of interior styles, from classic to contemporary. Whether you're curling up with a book or enjoying a cozy conversation, this armchair provides the perfect sanctuary for relaxation. Indulge in the ultimate comfort and style with our exquisite armchair, a true testament to refined living.",
     },
     {
       id: -11,
@@ -243,6 +265,8 @@ function getProducts() {
       department: "dining-room",
       category: "table",
       quantity: 12,
+      description:
+        "Introducing our stunning table, a fusion of exquisite craftsmanship and practicality. Designed to be both functional and visually captivating, this table adds a touch of elegance to any space. Its sturdy construction and high-quality materials ensure durability and longevity, making it a reliable choice for everyday use. The table's sleek and modern design seamlessly blends with a variety of interior styles, enhancing the overall aesthetics of your home. Whether you're gathering around it for family meals or using it as a focal point for social gatherings, this table provides ample surface area for dining, working, or displaying decor. With its attention to detail and timeless appeal, our table is not just a piece of furniture but a statement piece that elevates your living space to new heights of sophistication.",
     },
     {
       id: -12,
@@ -252,6 +276,8 @@ function getProducts() {
       department: "dining-room",
       category: "table",
       quantity: 22,
+      description:
+        "Introducing our stunning table, a fusion of exquisite craftsmanship and practicality. Designed to be both functional and visually captivating, this table adds a touch of elegance to any space. Its sturdy construction and high-quality materials ensure durability and longevity, making it a reliable choice for everyday use. The table's sleek and modern design seamlessly blends with a variety of interior styles, enhancing the overall aesthetics of your home. Whether you're gathering around it for family meals or using it as a focal point for social gatherings, this table provides ample surface area for dining, working, or displaying decor. With its attention to detail and timeless appeal, our table is not just a piece of furniture but a statement piece that elevates your living space to new heights of sophistication.",
     },
     {
       id: -13,
@@ -261,6 +287,8 @@ function getProducts() {
       department: "kids-furniture",
       category: "bed",
       quantity: 12,
+      description:
+        "Introducing our exquisite bed, where comfort meets luxury. Designed with utmost attention to detail, this bed offers a serene haven for restful nights and rejuvenating sleep. Crafted with premium materials and a sturdy frame, it ensures exceptional durability and long-lasting support. The bed's plush mattress provides the perfect balance between softness and firmness, cradling your body for optimal comfort. With its elegant design and versatile aesthetics, this bed seamlessly complements a range of bedroom styles, from contemporary to classic. Whether you're creating a peaceful retreat or a statement piece for your bedroom, our bed adds a touch of sophistication to your space. Indulge in a night of blissful sleep and awaken refreshed with our exceptional bed, where luxury and comfort harmonize for the ultimate sleeping experience.",
     },
     {
       id: -14,
@@ -270,6 +298,8 @@ function getProducts() {
       department: "kids-furniture",
       category: "table",
       quantity: 12,
+      description:
+        "Introducing our stunning table, a fusion of exquisite craftsmanship and practicality. Designed to be both functional and visually captivating, this table adds a touch of elegance to any space. Its sturdy construction and high-quality materials ensure durability and longevity, making it a reliable choice for everyday use. The table's sleek and modern design seamlessly blends with a variety of interior styles, enhancing the overall aesthetics of your home. Whether you're gathering around it for family meals or using it as a focal point for social gatherings, this table provides ample surface area for dining, working, or displaying decor. With its attention to detail and timeless appeal, our table is not just a piece of furniture but a statement piece that elevates your living space to new heights of sophistication.",
     },
     {
       id: -15,
@@ -279,6 +309,8 @@ function getProducts() {
       department: "office",
       category: "table",
       quantity: 12,
+      description:
+        "Introducing our stunning table, a fusion of exquisite craftsmanship and practicality. Designed to be both functional and visually captivating, this table adds a touch of elegance to any space. Its sturdy construction and high-quality materials ensure durability and longevity, making it a reliable choice for everyday use. The table's sleek and modern design seamlessly blends with a variety of interior styles, enhancing the overall aesthetics of your home. Whether you're gathering around it for family meals or using it as a focal point for social gatherings, this table provides ample surface area for dining, working, or displaying decor. With its attention to detail and timeless appeal, our table is not just a piece of furniture but a statement piece that elevates your living space to new heights of sophistication.",
     },
     {
       id: -16,
@@ -288,6 +320,8 @@ function getProducts() {
       department: "office",
       category: "table",
       quantity: 12,
+      description:
+        "Introducing our stunning table, a fusion of exquisite craftsmanship and practicality. Designed to be both functional and visually captivating, this table adds a touch of elegance to any space. Its sturdy construction and high-quality materials ensure durability and longevity, making it a reliable choice for everyday use. The table's sleek and modern design seamlessly blends with a variety of interior styles, enhancing the overall aesthetics of your home. Whether you're gathering around it for family meals or using it as a focal point for social gatherings, this table provides ample surface area for dining, working, or displaying decor. With its attention to detail and timeless appeal, our table is not just a piece of furniture but a statement piece that elevates your living space to new heights of sophistication.",
     },
     {
       id: -17,
@@ -297,6 +331,8 @@ function getProducts() {
       department: "office",
       category: "chair",
       quantity: 42,
+      description:
+        "Introducing our stylish chair, a perfect blend of form and function. This chair is designed to provide both comfort and aesthetic appeal, making it an ideal addition to any living or working space. Its ergonomic design ensures proper posture and support, allowing you to sit comfortably for extended periods. Crafted with high-quality materials, this chair is built to withstand daily use and offers long-lasting durability. With its sleek and versatile design, it effortlessly complements a variety of interior styles, from modern to traditional. Whether you're using it as a desk chair or as additional seating for guests, our chair combines practicality and style seamlessly. Elevate your space with our exceptional chair, offering both comfort and visual allure for a truly enhanced seating experience.",
     },
     {
       id: -18,
@@ -306,6 +342,8 @@ function getProducts() {
       department: "office",
       category: "chair",
       quantity: 12,
+      description:
+        "Introducing our stylish chair, a perfect blend of form and function. This chair is designed to provide both comfort and aesthetic appeal, making it an ideal addition to any living or working space. Its ergonomic design ensures proper posture and support, allowing you to sit comfortably for extended periods. Crafted with high-quality materials, this chair is built to withstand daily use and offers long-lasting durability. With its sleek and versatile design, it effortlessly complements a variety of interior styles, from modern to traditional. Whether you're using it as a desk chair or as additional seating for guests, our chair combines practicality and style seamlessly. Elevate your space with our exceptional chair, offering both comfort and visual allure for a truly enhanced seating experience.",
     },
     {
       id: -19,
@@ -315,6 +353,8 @@ function getProducts() {
       department: "office",
       category: "armchair",
       quantity: 12,
+      description:
+        "Introducing our luxurious armchair, where comfort meets elegance. Designed with both style and relaxation in mind, this armchair is a true centerpiece for any living space. Its plush cushioning and ergonomic design offer optimal support, allowing you to sink in and unwind after a long day. Crafted with the finest materials, this armchair exudes sophistication and durability, promising years of comfortable seating. Its timeless design effortlessly complements a range of interior styles, from classic to contemporary. Whether you're curling up with a book or enjoying a cozy conversation, this armchair provides the perfect sanctuary for relaxation. Indulge in the ultimate comfort and style with our exquisite armchair, a true testament to refined living.",
     },
     {
       id: -20,
@@ -324,6 +364,8 @@ function getProducts() {
       department: "outdoor",
       category: "chair",
       quantity: 120,
+      description:
+        "Introducing our stylish chair, a perfect blend of form and function. This chair is designed to provide both comfort and aesthetic appeal, making it an ideal addition to any living or working space. Its ergonomic design ensures proper posture and support, allowing you to sit comfortably for extended periods. Crafted with high-quality materials, this chair is built to withstand daily use and offers long-lasting durability. With its sleek and versatile design, it effortlessly complements a variety of interior styles, from modern to traditional. Whether you're using it as a desk chair or as additional seating for guests, our chair combines practicality and style seamlessly. Elevate your space with our exceptional chair, offering both comfort and visual allure for a truly enhanced seating experience.",
     },
     {
       id: -21,
@@ -333,6 +375,8 @@ function getProducts() {
       department: "outdoor",
       category: "chair",
       quantity: 12,
+      description:
+        "Introducing our stylish chair, a perfect blend of form and function. This chair is designed to provide both comfort and aesthetic appeal, making it an ideal addition to any living or working space. Its ergonomic design ensures proper posture and support, allowing you to sit comfortably for extended periods. Crafted with high-quality materials, this chair is built to withstand daily use and offers long-lasting durability. With its sleek and versatile design, it effortlessly complements a variety of interior styles, from modern to traditional. Whether you're using it as a desk chair or as additional seating for guests, our chair combines practicality and style seamlessly. Elevate your space with our exceptional chair, offering both comfort and visual allure for a truly enhanced seating experience.",
     },
     {
       id: -22,
@@ -342,6 +386,8 @@ function getProducts() {
       department: "outdoor",
       category: "table",
       quantity: 12,
+      description:
+        "Introducing our stunning table, a fusion of exquisite craftsmanship and practicality. Designed to be both functional and visually captivating, this table adds a touch of elegance to any space. Its sturdy construction and high-quality materials ensure durability and longevity, making it a reliable choice for everyday use. The table's sleek and modern design seamlessly blends with a variety of interior styles, enhancing the overall aesthetics of your home. Whether you're gathering around it for family meals or using it as a focal point for social gatherings, this table provides ample surface area for dining, working, or displaying decor. With its attention to detail and timeless appeal, our table is not just a piece of furniture but a statement piece that elevates your living space to new heights of sophistication.",
     },
     {
       id: -23,
@@ -351,6 +397,8 @@ function getProducts() {
       department: "outdoor",
       category: "table",
       quantity: 52,
+      description:
+        "Introducing our stunning table, a fusion of exquisite craftsmanship and practicality. Designed to be both functional and visually captivating, this table adds a touch of elegance to any space. Its sturdy construction and high-quality materials ensure durability and longevity, making it a reliable choice for everyday use. The table's sleek and modern design seamlessly blends with a variety of interior styles, enhancing the overall aesthetics of your home. Whether you're gathering around it for family meals or using it as a focal point for social gatherings, this table provides ample surface area for dining, working, or displaying decor. With its attention to detail and timeless appeal, our table is not just a piece of furniture but a statement piece that elevates your living space to new heights of sophistication.",
     },
     {
       id: -24,
@@ -360,6 +408,8 @@ function getProducts() {
       department: "outdoor",
       category: "sofa",
       quantity: 12,
+      description:
+        "Introducing our exquisite sofa, a true embodiment of comfort and style. Crafted with meticulous attention to detail, this sofa seamlessly combines luxurious aesthetics with exceptional functionality. Its plush cushions and ergonomic design provide an unparalleled level of comfort, inviting you to sink in and unwind after a long day. The sofa's sturdy construction and premium upholstery ensure durability, making it a long-lasting addition to your living space. With its timeless elegance and versatile appeal, this sofa effortlessly complements a range of interior styles. Whether you're hosting guests or enjoying a quiet evening, our sofa promises to be the perfect centerpiece for your home, offering both comfort and aesthetic allure.",
     },
   ];
 }

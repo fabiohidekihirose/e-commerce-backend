@@ -20,6 +20,7 @@ model products {
   category_name   String      @db.VarChar(64)
   category        categories  @relation(fields: [category_name], references: [category], onDelete: Cascade, onUpdate: Cascade)
   quantity        Int
+  description     String      @db.VarChar(2000)
 }
 
 model departments {
