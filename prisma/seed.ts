@@ -319,7 +319,7 @@ function getProducts() {
     {
       id: -20,
       name: "Outdoor Chair 1",
-      image: "/images/products/chair/outdoor-char-1.jpg",
+      image: "/images/products/chair/outdoor-chair-1.jpg",
       price: 10000,
       department: "outdoor",
       category: "chair",

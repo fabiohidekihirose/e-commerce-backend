@@ -11,21 +11,21 @@ datasource db {
 }
 
 model products {
-  id            Int         @id @default(autoincrement())
-  name          String      @db.VarChar(64)
-  department_id Int
-  department    departments @relation(fields: [department_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  image         String      @db.VarChar(64)
-  price         Int
-  category_id   Int
-  category      categories  @relation(fields: [category_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  quantity      Int
+  id              Int         @id @default(autoincrement())
+  name            String      @db.VarChar(64)
+  department_name String      @db.VarChar(64)
+  department      departments @relation(fields: [department_name], references: [department], onDelete: Cascade, onUpdate: Cascade)
+  image           String      @db.VarChar(64)
+  price           Int
+  category_name   String      @db.VarChar(64)
+  category        categories  @relation(fields: [category_name], references: [category], onDelete: Cascade, onUpdate: Cascade)
+  quantity        Int
 }
 
 model departments {
   id         Int        @id
   label      String     @db.VarChar(64)
-  department String     @db.VarChar(64)
+  department String     @unique @db.VarChar(64)
   image      String     @db.VarChar(64)
   products   products[]
 }
@@ -33,6 +33,6 @@ model departments {
 model categories {
   id       Int        @id
   label    String     @db.VarChar(64)
-  category String     @db.VarChar(64)
+  category String     @unique @db.VarChar(64)
   products products[]
 }
