@@ -7,7 +7,7 @@ interface Categories {
 }
 
 export async function getAllCategories(): Promise<Categories[]> {
-  return db.categories.findMany({
+  return db.category.findMany({
     select: {
       id: true,
       category: true,

@@ -11,7 +11,7 @@ interface ProductsProps {
 }
 
 export async function getAllProducts(): Promise<ProductsProps[]> {
-  return db.products.findMany({
+  return db.product.findMany({
     select: {
       id: true,
       name: true,
@@ -28,7 +28,7 @@ export async function getAllProducts(): Promise<ProductsProps[]> {
 export async function getProductById(
   productId: number
 ): Promise<ProductsProps | null> {
-  return db.products.findUnique({
+  return db.product.findUnique({
     select: {
       id: true,
       name: true,

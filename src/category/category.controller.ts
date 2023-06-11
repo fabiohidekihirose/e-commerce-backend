@@ -1,4 +1,4 @@
-import * as categoriesModel from "./categories.model";
+import * as categoriesModel from "./category.model";
 import { Request, Response } from "express";
 
 export async function index(req: Request, res: Response) {

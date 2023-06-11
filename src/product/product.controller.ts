@@ -1,4 +1,4 @@
-import * as productModel from "./products.model";
+import * as productModel from "./product.model";
 import { Request, Response } from "express";
 
 export async function index(req: Request, res: Response) {

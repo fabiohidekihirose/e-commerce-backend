@@ -8,7 +8,7 @@ interface Departments {
 }
 
 export async function getAllDepartments(): Promise<Departments[]> {
-  return db.departments.findMany({
+  return db.department.findMany({
     select: {
       label: true,
       image: true,

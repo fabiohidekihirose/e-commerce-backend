@@ -1,5 +1,5 @@
 import { Response, Request } from "express";
-import * as departmentsModel from "./departments.model";
+import * as departmentsModel from "./department.model";
 
 export async function index(req: Request, res: Response) {
   try {
