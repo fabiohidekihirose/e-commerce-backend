@@ -1,13 +1,13 @@
 import { db } from "../src/utils/db.server";
 
 async function seed() {
-  await db.products.deleteMany({});
-  await db.categories.deleteMany({});
-  await db.departments.deleteMany({});
+  await db.product.deleteMany({});
+  await db.category.deleteMany({});
+  await db.department.deleteMany({});
 
   await Promise.all(
     getDepartments().map((department) => {
-      return db.departments.create({
+      return db.department.create({
         data: {
           id: department.id,
           label: department.label,
@@ -20,7 +20,7 @@ async function seed() {
 
   await Promise.all(
     getCategories().map((category) => {
-      return db.categories.create({
+      return db.category.create({
         data: {
           id: category.id,
           label: category.label,
@@ -32,7 +32,7 @@ async function seed() {
 
   await Promise.all(
     getProducts().map((product) => {
-      return db.products.create({
+      return db.product.create({
         data: {
           id: product.id,
           name: product.name,

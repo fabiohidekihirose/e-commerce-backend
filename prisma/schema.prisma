@@ -10,30 +10,40 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model products {
-  id              Int         @id @default(autoincrement())
-  name            String      @db.VarChar(64)
-  department_name String      @db.VarChar(64)
-  department      departments @relation(fields: [department_name], references: [department], onDelete: Cascade, onUpdate: Cascade)
-  image           String      @db.VarChar(64)
+model user_account {
+  id         Int    @id @default(autoincrement())
+  first_name String @db.VarChar(64)
+  last_name  String @db.VarChar(64)
+  email      String @unique @db.VarChar(64)
+  password   String @db.VarChar(128)
+  mobile     Int
+  address    String @db.VarChar(64)
+}
+
+model product {
+  id              Int        @id @default(autoincrement())
+  name            String     @db.VarChar(64)
+  department_name String     @db.VarChar(64)
+  department      department @relation(fields: [department_name], references: [department], onDelete: Cascade, onUpdate: Cascade)
+  image           String     @db.VarChar(64)
   price           Int
-  category_name   String      @db.VarChar(64)
-  category        categories  @relation(fields: [category_name], references: [category], onDelete: Cascade, onUpdate: Cascade)
+  category_name   String     @db.VarChar(64)
+  category        category   @relation(fields: [category_name], references: [category], onDelete: Cascade, onUpdate: Cascade)
   quantity        Int
-  description     String      @db.VarChar(2000)
+  description     String     @db.VarChar(2000)
 }
 
-model departments {
-  id         Int        @id
-  label      String     @db.VarChar(64)
-  department String     @unique @db.VarChar(64)
-  image      String     @db.VarChar(64)
-  products   products[]
+model department {
+  id         Int       @id
+  label      String    @db.VarChar(64)
+  department String    @unique @db.VarChar(64)
+  image      String    @db.VarChar(64)
+  products   product[]
 }
 
-model categories {
-  id       Int        @id
-  label    String     @db.VarChar(64)
-  category String     @unique @db.VarChar(64)
-  products products[]
+model category {
+  id       Int       @id
+  label    String    @db.VarChar(64)
+  category String    @unique @db.VarChar(64)
+  products product[]
 }
