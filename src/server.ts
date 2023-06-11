@@ -1,7 +1,9 @@
 import express, { Express, Request, Response } from "express";
-import * as departmentsController from "./departments/departments.controller";
-import * as categoriesController from "./categories/categories.controller";
-import * as productsController from "./products/products.controller";
+import * as departmentsController from "./department/department.controller";
+import * as categoriesController from "./category/category.controller";
+import * as productsController from "./product/product.controller";
+import * as userController from "./user/user.controller";
+import { authMiddleware } from "./utils/middlewares";
 import cors from "cors";
 
 const server: Express = express();
@@ -23,6 +25,10 @@ server.use((req, res, next) => {
 server.use(express.json());
 
 const serverEndpoints = () => {
+  server.post("/users", userController.create);
+  server.post("/login", userController.login);
+  server.get("/profile", authMiddleware, userController.getProfile);
+
   server.get("/products", productsController.index);
   server.get("/products/:id", productsController.view);
 
