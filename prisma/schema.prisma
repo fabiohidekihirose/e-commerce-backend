@@ -16,7 +16,7 @@ model user_account {
   last_name  String @db.VarChar(64)
   email      String @unique @db.VarChar(64)
   password   String @db.VarChar(128)
-  mobile     Int
+  mobile     String @db.VarChar(32)
   address    String @db.VarChar(64)
 }
 
