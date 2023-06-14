@@ -15,19 +15,25 @@ export async function authMiddleware(
 
   if (!authorization) {
     res.status(401).send("User unauthorized");
+    return;
   } else {
-    const { id } = jwt.verify(authorization, "test123") as JwtPayload;
+    const SECRET_KEY = process.env.ACCESS_TOKEN_SECRET;
 
-    const user = await userModel.getUserById(id);
+    if (SECRET_KEY) {
+      const { id } = jwt.verify(authorization, SECRET_KEY) as JwtPayload;
 
-    if (!user) {
-      res.status(400).send("User unauthorized");
-    } else {
-      const { password: _, ...loggedUser } = user;
+      const user = await userModel.getUserById(id);
 
-      req.user = loggedUser;
+      if (!user) {
+        res.status(400).send("User unauthorized");
+        return;
+      } else {
+        const { password: _, ...loggedUser } = user;
 
-      next();
+        req.user = loggedUser;
+
+        next();
+      }
     }
   }
 }

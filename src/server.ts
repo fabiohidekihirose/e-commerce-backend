@@ -4,9 +4,12 @@ import * as categoriesController from "./category/category.controller";
 import * as productsController from "./product/product.controller";
 import * as userController from "./user/user.controller";
 import { authMiddleware } from "./utils/middlewares";
+import cookieParser from "cookie-parser";
 import cors from "cors";
 
 const server: Express = express();
+
+server.use(cors());
 
 server.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -23,9 +26,10 @@ server.use((req, res, next) => {
 });
 
 server.use(express.json());
+server.use(cookieParser());
 
 const serverEndpoints = () => {
-  server.post("/users", userController.create);
+  server.post("/users/sign-up", userController.create);
   server.post("/login", userController.login);
   server.get("/profile", authMiddleware, userController.getProfile);
 
