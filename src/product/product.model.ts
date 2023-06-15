@@ -44,3 +44,13 @@ export async function getProductById(
     },
   });
 }
+
+export async function getProductsBySearchWord(searchWord: string) {
+  return db.product.findMany({
+    where: {
+      name: {
+        search: searchWord,
+      },
+    },
+  });
+}
