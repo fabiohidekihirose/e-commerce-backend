@@ -29,3 +29,13 @@ export async function search(req: Request, res: Response) {
     res.status(500).send(error.message);
   }
 }
+
+export async function filter(req: Request, res: Response) {
+  try {
+    const filter = req.params.department;
+    const filteredProducts = await productModel.getProductsByDepartment(filter);
+    res.status(200).send(filteredProducts);
+  } catch (error: any) {
+    res.status(500).send(error.message);
+  }
+}

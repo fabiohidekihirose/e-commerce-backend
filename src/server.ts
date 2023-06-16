@@ -35,6 +35,7 @@ const serverEndpoints = () => {
 
   server.get("/products", productsController.index);
   server.get("/products/:id", productsController.view);
+  server.get("/products/departments/:department", productsController.filter);
   server.get("/products/search/:searchWord", productsController.search);
 
   server.get("/departments", departmentsController.index);

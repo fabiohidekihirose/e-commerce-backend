@@ -54,3 +54,14 @@ export async function getProductsBySearchWord(searchWord: string) {
     },
   });
 }
+
+export async function getProductsByDepartment(department: string) {
+  return db.department.findMany({
+    select: {
+      products: true,
+    },
+    where: {
+      department,
+    },
+  });
+}
