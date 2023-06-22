@@ -32,6 +32,7 @@ model product {
   category        category   @relation(fields: [category_name], references: [category], onDelete: Cascade, onUpdate: Cascade)
   quantity        Int
   description     String     @db.VarChar(2000)
+  discount        Int
 }
 
 model department {

@@ -39,3 +39,12 @@ export async function filter(req: Request, res: Response) {
     res.status(500).send(error.message);
   }
 }
+
+export async function sales(req: Request, res: Response) {
+  try {
+    const salesProducts = await productModel.getProductsWithDiscount();
+    res.status(200).send(salesProducts);
+  } catch (error: any) {
+    res.status(500).send(error.message);
+  }
+}

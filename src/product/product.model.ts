@@ -65,3 +65,11 @@ export async function getProductsByDepartment(department: string) {
     },
   });
 }
+
+export async function getProductsWithDiscount() {
+  return db.product.findMany({
+    where: {
+      discount: { not: 0 },
+    },
+  });
+}

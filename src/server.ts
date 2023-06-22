@@ -14,7 +14,6 @@ server.use(cors());
 server.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
 
-  console.log(res);
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS, DELETE, PUT, PATCH"
@@ -36,6 +35,7 @@ const serverEndpoints = () => {
   server.get("/profile", authMiddleware, userController.getProfile);
 
   server.get("/products", productsController.index);
+  server.get("/products/sales", productsController.sales);
   server.get("/products/:id", productsController.view);
   server.get("/products/departments/:department", productsController.filter);
   server.get("/products/search/:searchWord", productsController.search);
