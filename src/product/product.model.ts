@@ -21,6 +21,7 @@ export async function getAllProducts(): Promise<ProductsProps[]> {
       category_name: true,
       quantity: true,
       description: true,
+      discount: true,
     },
   });
 }
@@ -38,6 +39,7 @@ export async function getProductById(
       category_name: true,
       quantity: true,
       description: true,
+      discount: true,
     },
     where: {
       id: productId,

@@ -143,6 +143,31 @@ function getCategories() {
       label: "Table",
       category: "table",
     },
+    {
+      id: 6,
+      label: "Book Shelf",
+      category: "book-shelf",
+    },
+    {
+      id: 7,
+      label: "Lamp",
+      category: "lamp",
+    },
+    {
+      id: 8,
+      label: "Mirror",
+      category: "mirror",
+    },
+    {
+      id: 9,
+      label: "Picture",
+      category: "picture",
+    },
+    {
+      id: 10,
+      label: "Plant",
+      category: "plant",
+    },
   ];
 }
 
@@ -240,7 +265,7 @@ function getProducts() {
       department: "bedroom",
       category: "bed",
       quantity: 24,
-      discount: 0,
+      discount: 30,
       description:
         "Introducing our exquisite bed, where comfort meets luxury. Designed with utmost attention to detail, this bed offers a serene haven for restful nights and rejuvenating sleep. Crafted with premium materials and a sturdy frame, it ensures exceptional durability and long-lasting support. The bed's plush mattress provides the perfect balance between softness and firmness, cradling your body for optimal comfort. With its elegant design and versatile aesthetics, this bed seamlessly complements a range of bedroom styles, from contemporary to classic. Whether you're creating a peaceful retreat or a statement piece for your bedroom, our bed adds a touch of sophistication to your space. Indulge in a night of blissful sleep and awaken refreshed with our exceptional bed, where luxury and comfort harmonize for the ultimate sleeping experience.",
     },
@@ -312,7 +337,7 @@ function getProducts() {
       department: "kids-furniture",
       category: "table",
       quantity: 12,
-      discount: 0,
+      discount: 20,
       description:
         "Introducing our stunning table, a fusion of exquisite craftsmanship and practicality. Designed to be both functional and visually captivating, this table adds a touch of elegance to any space. Its sturdy construction and high-quality materials ensure durability and longevity, making it a reliable choice for everyday use. The table's sleek and modern design seamlessly blends with a variety of interior styles, enhancing the overall aesthetics of your home. Whether you're gathering around it for family meals or using it as a focal point for social gatherings, this table provides ample surface area for dining, working, or displaying decor. With its attention to detail and timeless appeal, our table is not just a piece of furniture but a statement piece that elevates your living space to new heights of sophistication.",
     },
@@ -435,6 +460,126 @@ function getProducts() {
       discount: 20,
       description:
         "Introducing our exquisite sofa, a true embodiment of comfort and style. Crafted with meticulous attention to detail, this sofa seamlessly combines luxurious aesthetics with exceptional functionality. Its plush cushions and ergonomic design provide an unparalleled level of comfort, inviting you to sink in and unwind after a long day. The sofa's sturdy construction and premium upholstery ensure durability, making it a long-lasting addition to your living space. With its timeless elegance and versatile appeal, this sofa effortlessly complements a range of interior styles. Whether you're hosting guests or enjoying a quiet evening, our sofa promises to be the perfect centerpiece for your home, offering both comfort and aesthetic allure.",
+    },
+    {
+      id: -25,
+      name: "Big Book Shelf",
+      image: "/images/products/book-shelf/big-book-shelf.png",
+      price: 200000,
+      department: "store-organization",
+      category: "book-shelf",
+      quantity: 4,
+      discount: 30,
+      description:
+        "It creates an immersive sanctuary—a place to reflect, imagine, and expand one's horizons. Lose track of time as you wander its towering aisles, encountering worlds both familiar and unknown, savoring the joy of intellectual exploration.",
+    },
+    {
+      id: -26,
+      name: "Medium Book Shelf",
+      image: "/images/products/book-shelf/medium-book-shelf.png",
+      price: 200000,
+      department: "store-organization",
+      category: "book-shelf",
+      quantity: 5,
+      discount: 0,
+      description:
+        "It creates an immersive sanctuary—a place to reflect, imagine, and expand one's horizons. Lose track of time as you wander its towering aisles, encountering worlds both familiar and unknown, savoring the joy of intellectual exploration.",
+    },
+    {
+      id: -27,
+      name: "Bedroom Lamp",
+      image: "/images/products/lamp/bedroom-lamp.png",
+      price: 3000,
+      department: "lighting",
+      category: "lamp",
+      quantity: 50,
+      discount: 10,
+      description:
+        "Crafted with a harmonious combination of premium materials and contemporary design, its sleek and slender frame, available in polished metal or richly textured wood, exudes a sense of modernity, making it an exquisite addition to any decor style.",
+    },
+    {
+      id: -28,
+      name: "Dining Lamp",
+      image: "/images/products/lamp/dining-lamp.png",
+      price: 5000,
+      department: "lighting",
+      category: "lamp",
+      quantity: 120,
+      discount: 0,
+      description:
+        "Crafted with a harmonious combination of premium materials and contemporary design, its sleek and slender frame, available in polished metal or richly textured wood, exudes a sense of modernity, making it an exquisite addition to any decor style.",
+    },
+    {
+      id: -29,
+      name: "Study Lamp",
+      image: "/images/products/lamp/study-lamp.png",
+      price: 2000,
+      department: "lighting",
+      category: "lamp",
+      quantity: 150,
+      discount: 10,
+      description:
+        "Crafted with a harmonious combination of premium materials and contemporary design, its sleek and slender frame, available in polished metal or richly textured wood, exudes a sense of modernity, making it an exquisite addition to any decor style.",
+    },
+    {
+      id: -30,
+      name: "White Lamp",
+      image: "/images/products/lamp/white-lamp.png",
+      price: 6000,
+      department: "lighting",
+      category: "lamp",
+      quantity: 50,
+      discount: 0,
+      description:
+        "Crafted with a harmonious combination of premium materials and contemporary design, its sleek and slender frame, available in polished metal or richly textured wood, exudes a sense of modernity, making it an exquisite addition to any decor style.",
+    },
+    {
+      id: -31,
+      name: "Big Mirror",
+      image: "/images/products/mirror/big-mirror.png",
+      price: 54900,
+      department: "decor-accessories",
+      category: "mirror",
+      quantity: 50,
+      discount: 20,
+      description:
+        "Crafted with a harmonious combination of premium materials and contemporary design, its sleek and slender frame, available in polished metal or richly textured wood, exudes a sense of modernity, making it an exquisite addition to any decor style.",
+    },
+    {
+      id: -32,
+      name: "Small Mirror",
+      image: "/images/products/mirror/small-mirror.png",
+      price: 14900,
+      department: "decor-accessories",
+      category: "mirror",
+      quantity: 50,
+      discount: 50,
+      description:
+        "Crafted with a harmonious combination of premium materials and contemporary design, its sleek and slender frame, available in polished metal or richly textured wood, exudes a sense of modernity, making it an exquisite addition to any decor style.",
+    },
+    {
+      id: -33,
+      name: "Big Picture",
+      image: "/images/products/picture/big-picture.png",
+      price: 149000,
+      department: "decor-accessories",
+      category: "picture",
+      quantity: 40,
+      discount: 50,
+      description:
+        "Crafted with a harmonious combination of premium materials and contemporary design, its sleek and slender frame, available in polished metal or richly textured wood, exudes a sense of modernity, making it an exquisite addition to any decor style.",
+    },
+    {
+      id: -34,
+      name: "Medium Plant",
+      image: "/images/products/plant/medium-plant.png",
+      price: 9900,
+      department: "decor-accessories",
+      category: "plant",
+      quantity: 40,
+      discount: 0,
+      description:
+        "Crafted with a harmonious combination of premium materials and contemporary design, its sleek and slender frame, available in polished metal or richly textured wood, exudes a sense of modernity, making it an exquisite addition to any decor style.",
     },
   ];
 }
