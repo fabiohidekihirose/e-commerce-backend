@@ -3,6 +3,7 @@ import * as departmentsController from "./department/department.controller";
 import * as categoriesController from "./category/category.controller";
 import * as productsController from "./product/product.controller";
 import * as userController from "./user/user.controller";
+import * as favoriteController from "./favorite/favorite.controller";
 import { authMiddleware } from "./utils/middlewares";
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -39,6 +40,8 @@ const serverEndpoints = () => {
   server.get("/products/:id", productsController.view);
   server.get("/products/departments/:department", productsController.filter);
   server.get("/products/search/:searchWord", productsController.search);
+
+  server.get("/user/:id/favorites");
 
   server.get("/departments", departmentsController.index);
 
