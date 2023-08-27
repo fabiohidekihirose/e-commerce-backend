@@ -21,6 +21,7 @@ model user_account {
   mobile     String     @db.VarChar(32)
   address    String     @db.VarChar(64)
   favorite   favorite[]
+  review     review[]
 }
 
 model product {
@@ -36,6 +37,7 @@ model product {
   description     String     @db.VarChar(2000)
   discount        Int
   favorite        favorite[]
+  review          review[]
 }
 
 model department {
@@ -54,6 +56,14 @@ model category {
 }
 
 model favorite {
+  id         Int          @id
+  user_id    Int
+  user       user_account @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  product_id Int
+  product    product      @relation(fields: [product_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model review {
   id         Int          @id
   user_id    Int
   user       user_account @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
