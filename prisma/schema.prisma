@@ -64,9 +64,11 @@ model favorite {
 }
 
 model review {
-  id         Int          @id
+  id         Int          @id @default(autoincrement())
   user_id    Int
   user       user_account @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
   product_id Int
   product    product      @relation(fields: [product_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  comment    String       @db.VarChar(500)
+  rating     Int
 }
