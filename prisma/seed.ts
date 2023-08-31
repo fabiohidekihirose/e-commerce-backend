@@ -1,9 +1,30 @@
 import { db } from "../src/utils/db.server";
+import bcrypt from "bcrypt";
 
 async function seed() {
+  await db.review.deleteMany({});
   await db.product.deleteMany({});
   await db.category.deleteMany({});
   await db.department.deleteMany({});
+  await db.user_account.deleteMany({});
+
+  await Promise.all(
+    getUsers().map(async (user) => {
+      const hashPassword = await bcrypt.hash(user.password, 10);
+
+      return db.user_account.create({
+        data: {
+          id: user.id,
+          first_name: user.first_name,
+          last_name: user.last_name,
+          email: user.email,
+          password: hashPassword,
+          mobile: user.mobile,
+          address: user.address,
+        },
+      });
+    })
+  );
 
   await Promise.all(
     getDepartments().map((department) => {
@@ -47,9 +68,55 @@ async function seed() {
       });
     })
   );
+
+  await Promise.all(
+    getReviews().map((review) => {
+      return db.review.create({
+        data: {
+          id: review.id,
+          user_id: review.user_id,
+          product_id: review.product_id,
+          comment: review.comment,
+          rating: review.rating,
+        },
+      });
+    })
+  );
 }
 
 seed();
+
+function getUsers() {
+  return [
+    {
+      id: -1,
+      first_name: "John",
+      last_name: "Smith",
+      email: "john_smith@gmail.com",
+      password: "john123",
+      mobile: "123456",
+      address: "Street 123",
+    },
+    {
+      id: -2,
+      first_name: "Susan",
+      last_name: "Miller",
+      email: "susan_miller@gmail.com",
+      password: "susan123",
+      mobile: "123456",
+      address: "Street 123",
+    },
+    {
+      id: -3,
+      first_name: "Harry",
+      last_name: "Dotson",
+      email: "harry_dotson@gmail.com",
+      password: "harry123",
+      mobile: "123456",
+      address: "Street 123",
+    },
+  ];
+}
 
 function getDepartments() {
   return [
@@ -580,6 +647,25 @@ function getProducts() {
       discount: 0,
       description:
         "Crafted with a harmonious combination of premium materials and contemporary design, its sleek and slender frame, available in polished metal or richly textured wood, exudes a sense of modernity, making it an exquisite addition to any decor style.",
+    },
+  ];
+}
+
+function getReviews() {
+  return [
+    {
+      id: -1,
+      user_id: -2,
+      product_id: -1,
+      comment: "Excelent product, really recommend!",
+      rating: 5,
+    },
+    {
+      id: -2,
+      user_id: -3,
+      product_id: -1,
+      comment: "Good product!",
+      rating: 4,
     },
   ];
 }
