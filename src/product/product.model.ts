@@ -22,6 +22,11 @@ export async function getAllProducts(): Promise<ProductsProps[]> {
       quantity: true,
       description: true,
       discount: true,
+      review: {
+        select: {
+          rating: true,
+        },
+      },
     },
   });
 }
@@ -40,6 +45,7 @@ export async function getProductById(
       quantity: true,
       description: true,
       discount: true,
+      review: true,
     },
     where: {
       id: productId,
