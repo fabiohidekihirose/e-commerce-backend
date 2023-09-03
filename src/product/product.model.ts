@@ -55,6 +55,22 @@ export async function getProductById(
 
 export async function getProductsBySearchWord(searchWord: string) {
   return db.product.findMany({
+    select: {
+      id: true,
+      name: true,
+      department_name: true,
+      image: true,
+      price: true,
+      category_name: true,
+      quantity: true,
+      description: true,
+      discount: true,
+      review: {
+        select: {
+          rating: true,
+        },
+      },
+    },
     where: {
       name: {
         search: searchWord,
@@ -66,7 +82,24 @@ export async function getProductsBySearchWord(searchWord: string) {
 export async function getProductsByDepartment(department: string) {
   return db.department.findMany({
     select: {
-      products: true,
+      products: {
+        select: {
+          id: true,
+          name: true,
+          department_name: true,
+          image: true,
+          price: true,
+          category_name: true,
+          quantity: true,
+          description: true,
+          discount: true,
+          review: {
+            select: {
+              rating: true,
+            },
+          },
+        },
+      },
     },
     where: {
       department,
@@ -76,6 +109,22 @@ export async function getProductsByDepartment(department: string) {
 
 export async function getProductsWithDiscount() {
   return db.product.findMany({
+    select: {
+      id: true,
+      name: true,
+      department_name: true,
+      image: true,
+      price: true,
+      category_name: true,
+      quantity: true,
+      description: true,
+      discount: true,
+      review: {
+        select: {
+          rating: true,
+        },
+      },
+    },
     where: {
       discount: { not: 0 },
     },
