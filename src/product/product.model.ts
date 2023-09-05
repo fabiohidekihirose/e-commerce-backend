@@ -45,7 +45,17 @@ export async function getProductById(
       quantity: true,
       description: true,
       discount: true,
-      review: true,
+      review: {
+        select: {
+          user: {
+            select: {
+              first_name: true,
+            },
+          },
+          comment: true,
+          rating: true,
+        },
+      },
     },
     where: {
       id: productId,

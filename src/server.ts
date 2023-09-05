@@ -41,7 +41,7 @@ const serverEndpoints = () => {
   server.get("/products/departments/:department", productsController.filter);
   server.get("/products/search/:searchWord", productsController.search);
 
-  server.get("/user/:id/favorites");
+  server.get("/user/:id/favorites", favoriteController.index);
 
   server.get("/departments", departmentsController.index);
 
