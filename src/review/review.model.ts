@@ -1,6 +1,6 @@
 import { db } from "../utils/db.server";
 
-interface Review {
+export interface Review {
   user_id: number;
   product_id: number;
   comment: string;

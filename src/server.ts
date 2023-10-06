@@ -40,6 +40,7 @@ const serverEndpoints = () => {
   server.get("/products/:id", productsController.view);
   server.get("/products/departments/:department", productsController.filter);
   server.get("/products/search/:searchWord", productsController.search);
+  server.post("/products/checkout", productsController.checkout);
 
   server.get("/user/:id/favorites", favoriteController.index);
 

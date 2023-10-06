@@ -1,13 +1,17 @@
 import { db } from "../utils/db.server";
 
-interface ProductsProps {
+export interface ProductsProps {
   id: number;
   name: string;
   department_name: string;
   image: string;
   price: number;
   category_name: string;
+  description: string;
   quantity: number;
+  discount: number;
+  review: {}[];
+  inCart?: number;
 }
 
 export async function getAllProducts(): Promise<ProductsProps[]> {
