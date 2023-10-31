@@ -1,90 +1,99 @@
-import { db } from "../src/utils/db.server";
+import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 
-async function seed() {
-  await db.review.deleteMany({});
-  await db.product.deleteMany({});
-  await db.category.deleteMany({});
-  await db.department.deleteMany({});
-  await db.user_account.deleteMany({});
+const prisma = new PrismaClient();
 
-  await Promise.all(
-    getUsers().map(async (user) => {
-      const hashPassword = await bcrypt.hash(user.password, 10);
+const load = async () => {
+  try {
+    await prisma.review.deleteMany({});
+    await prisma.product.deleteMany({});
+    await prisma.category.deleteMany({});
+    await prisma.department.deleteMany({});
+    await prisma.user_account.deleteMany({});
 
-      return db.user_account.create({
-        data: {
-          id: user.id,
-          first_name: user.first_name,
-          last_name: user.last_name,
-          email: user.email,
-          password: hashPassword,
-          mobile: user.mobile,
-          address: user.address,
-        },
-      });
-    })
-  );
+    await Promise.all(
+      getUsers().map(async (user) => {
+        const hashPassword = await bcrypt.hash(user.password, 10);
 
-  await Promise.all(
-    getDepartments().map((department) => {
-      return db.department.create({
-        data: {
-          id: department.id,
-          label: department.label,
-          image: department.image,
-          department: department.department,
-        },
-      });
-    })
-  );
+        return prisma.user_account.create({
+          data: {
+            id: user.id,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            email: user.email,
+            password: hashPassword,
+            mobile: user.mobile,
+            address: user.address,
+          },
+        });
+      })
+    );
 
-  await Promise.all(
-    getCategories().map((category) => {
-      return db.category.create({
-        data: {
-          id: category.id,
-          label: category.label,
-          category: category.category,
-        },
-      });
-    })
-  );
+    await Promise.all(
+      getDepartments().map((department) => {
+        return prisma.department.create({
+          data: {
+            id: department.id,
+            label: department.label,
+            image: department.image,
+            department: department.department,
+          },
+        });
+      })
+    );
 
-  await Promise.all(
-    getProducts().map((product) => {
-      return db.product.create({
-        data: {
-          id: product.id,
-          name: product.name,
-          quantity: product.quantity,
-          image: product.image,
-          price: product.price,
-          category_name: product.category,
-          department_name: product.department,
-          description: product.description,
-          discount: product.discount,
-        },
-      });
-    })
-  );
+    await Promise.all(
+      getCategories().map((category) => {
+        return prisma.category.create({
+          data: {
+            id: category.id,
+            label: category.label,
+            category: category.category,
+          },
+        });
+      })
+    );
 
-  await Promise.all(
-    getReviews().map((review) => {
-      return db.review.create({
-        data: {
-          id: review.id,
-          user_id: review.user_id,
-          product_id: review.product_id,
-          comment: review.comment,
-          rating: review.rating,
-        },
-      });
-    })
-  );
-}
+    await Promise.all(
+      getProducts().map((product) => {
+        return prisma.product.create({
+          data: {
+            id: product.id,
+            name: product.name,
+            quantity: product.quantity,
+            image: product.image,
+            price: product.price,
+            category_name: product.category,
+            department_name: product.department,
+            description: product.description,
+            discount: product.discount,
+          },
+        });
+      })
+    );
 
-seed();
+    await Promise.all(
+      getReviews().map((review) => {
+        return prisma.review.create({
+          data: {
+            id: review.id,
+            user_id: review.user_id,
+            product_id: review.product_id,
+            comment: review.comment,
+            rating: review.rating,
+          },
+        });
+      })
+    );
+  } catch (e) {
+    console.error(e);
+    process.exit(1);
+  } finally {
+    await prisma.$disconnect();
+  }
+};
+
+load();
 
 function getUsers() {
   return [
